@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+    <h1>Books Store</h1>
+    <div class="book-info" hidden>
+        <label for="book-name">* Book name:</label>
+        <input type="text" required class="book-name" placeholder="Book name"><br>
+        <label for="book-pric">* Book price:</label>
+        <input type="number" required class="book-price" placeholder="Book price"><br>
+        <label for="book-url">Book url:</label>
+        <input type="text" class="book-url" placeholder="Book url"><br>
+        <button class="add-new-book" onclick="onCreateNewBook()">Add new book</button>
+    </div>
+    <div class="create-search-bar">
+
+        <div class="add-book" onclick="onOpenAddBookModal()">Create new book</div>
+        <div class="search-book">
+            <input type="text" onkeyup="onSearchBook()" placeholder="Search for a book.." title="Type in a name">
+        </div>
+    </div>
+    <div class="books-container">
+        <table>
+            <thead>
+                <th>Id</th>
+                <th onclick="onSortBy('name')">Title</th>
+                <th onclick="onSortBy('price')">Price</th>
+                <th colspan="3">Actions</th>
+            </thead>
+            <tbody class="books-rows">
+
+            </tbody>
+
+        </table>
+        <button onclick="onNextPage()">Next Page</button>
+        <div class="modal" hidden>
+            <h3></h3>
+            <div class="book-img"></div>
+            <p>Description:</p>
+            <div class="rating">
+                <button class="rating-down" onclick="onRatingDown()">-</button>
+                <input class="reteValue" disabled type="text" min=0 max= 10 value="0" size="1">
+                <button class="rating-up" onclick="onRatingUp()">+</button><br>
+                <button class="rate" onclick="onRate()">Rate</button>
+                Rating: <span></span>
+            </div>
+            <button class="close-modal" onclick="onCloseModal()">Close</button>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/util-service.js"></script>
+    <script src="js/book-controller.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/book-service.js"></script>
+</body>
+
+</html>
