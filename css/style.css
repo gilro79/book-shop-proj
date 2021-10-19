@@ -4,11 +4,16 @@ html{
     padding: 0;
 }
 body{
-    margin: 0;
+    margin: 10px;
     padding: 0;
 }
 body.rtl {
     direction: rtl;
+}
+.lang-flag{
+    position: fixed;
+    margin-inline-start: 50%;
+    top: 10px;
 }
 select.lang-flag option[value="en"]{
     background-image:url('../img/flag/us_flag.png');
@@ -53,6 +58,9 @@ thead{
     padding: 12px 12px 10px 40px;
     border: 1px solid #ddd;
     margin-bottom: 12px;
+  }
+  .page-btn{
+      margin-top: 20px;
   }
 
 .modal {

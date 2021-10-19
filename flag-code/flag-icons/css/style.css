@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.dropdown-item.en {
+  background-image: url('../css/img/united-states.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-inline: 2rem;
+  margin: 10px;
+}
+
+.dropdown-item.he {
+  background-image: url('../css/img/israel.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-inline: 2rem;
+  margin: 10px;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: #333;
+  text-decoration: none;
+}

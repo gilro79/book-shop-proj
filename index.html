@@ -6,16 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<!-- <body class="container" onload="onInit()"> -->
 <body onload="onInit()">
     <h1 data-trans="title">Books Store</h1>
     <select class="lang-flag" onchange="onSetLang(this.value)">
         <option value="en">English</option>
         <option value="he">עברית</option>
     </select>
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Create new book
+    </button> -->
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <label data-trans="new-book-name-lable" for="book-name">* Book name:</label>
+                    <input data-trans="new-book-name" type="text" required class="book-name"
+                        placeholder="Book name"><br>
+                    <label data-trans="new-book-price-lable" for="book-pric">* Book price:</label>
+                    <input data-trans="new-book-price" type="number" required class="book-price"
+                        placeholder="Book price"><br>
+                    <label data-trans="new-book-url-lable" for="book-url">Book url:</label>
+                    <input data-trans="new-book-url" type="text" class="book-url" placeholder="Book url"><br> -->
+                    <!-- <button data-trans="make-new-book" class="add-new-book" onclick="onCreateNewBook()">Add new book</button> -->
+                    <!-- ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="onCreateNewBook()">Add new book</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
     <div class="book-info" hidden>
         <label data-trans="new-book-name-lable" for="book-name">* Book name:</label>
         <input data-trans="new-book-name" type="text" required class="book-name" placeholder="Book name"><br>
@@ -29,7 +71,8 @@
 
         <div class="add-book" data-trans="new-book" onclick="onOpenAddBookModal()">Create new book</div>
         <div class="search-book">
-            <input type="text" data-trans="search-bar" onkeyup="onSearchBook()" placeholder="Search for a book.." title="Type in a name">
+            <input type="text" data-trans="search-bar" onkeyup="onSearchBook()" placeholder="Search for a book.."
+                title="Type in a name">
         </div>
     </div>
     <div class="books-container">
@@ -45,14 +88,14 @@
             </tbody>
 
         </table>
-        <button data-trans="page-btn" onclick="onNextPage()">Next Page</button>
+        <button data-trans="page-btn" class="page-btn" onclick="onNextPage()">Next Page</button>
         <div class="modal" hidden>
             <h3></h3>
             <div class="book-img"></div>
             <p data-trans="modal-desc">Description:</p>
             <div class="rating">
                 <button class="rating-down" onclick="onRatingDown()">-</button>
-                <input class="reteValue" disabled type="text" min=0 max= 10 value="0" size="1">
+                <input class="reteValue" disabled type="text" min=0 max=10 value="0" size="1">
                 <button class="rating-up" onclick="onRatingUp()">+</button><br>
                 <button data-trans="modal-rate-btn" class="rate" onclick="onRate()">Rate</button>
                 Rating: <span></span>
@@ -61,7 +104,12 @@
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script src="js/util-service.js"></script>
     <script src="js/book-controller.js"></script>

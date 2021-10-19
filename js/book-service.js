@@ -28,7 +28,6 @@ function getBooks() {
 
 function _createBooks() {
     var books = loadFromStorage(KEY);
-    console.log('books', books)
     if (!books || !books.length) {
         books = []
         books.push(_createBook('Shogun', 89, 'img/shogun.png'))
