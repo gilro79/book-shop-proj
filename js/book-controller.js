@@ -1,6 +1,6 @@
-'use restrict'
+'use strict'
 
-
+const gIlFlag = 'U+1F1EE U+1F1F1';
 
 function renderBooks() {
     var books = getBooks();
@@ -10,13 +10,26 @@ function renderBooks() {
             <td class="book-id-cell">${book.id}</td>
             <td class="book-name-cell">${book.name}</td>
             <td class="book-price-cell">${book.price}</td>
-            <td class="read-cell"><button class="read-btn" onclick="onReadBook('${book.id}')">Read</button></td>
-            <td class="update-cell"><button class="update-btn" onclick="onUpdateBook('${book.id}')">Update</button></td>
-            <td delete-cell><button class="delete-btn" onclick="onDeleteBook('${book.id}')">Delete</button></td>
+            <td class="read-cell"><button data-trans="read-btn" class="read-btn" onclick="onReadBook('${book.id}')">Read</button></td>
+            <td class="update-cell"><button data-trans="update-btn" class="update-btn" onclick="onUpdateBook('${book.id}')">Update</button></td>
+            <td class="delete-cell"><button data-trans="delete-btn" class="delete-btn" onclick="onDeleteBook('${book.id}')">Delete</button></td>
         </tr>
         `
     })
     document.querySelector('.books-rows').innerHTML = strHtmls.join('')
+    doTrans();
+}
+
+function onSetLang(lang){
+    setLang(lang);
+    // if lang is hebrew add RTL class to document.body
+    var elBody = document.querySelector('body')
+    if(lang === 'he'){
+       elBody.classList.add('rtl')
+    } else {
+        elBody.classList.remove('rtl')
+    }
+    renderBooks();
 }
 
 function onOpenAddBookModal() {
@@ -59,7 +72,7 @@ function onReadBook(bookId) {
 }
 
 function onCloseModal() {
-    elModal = document.querySelector('.modal');
+    var elModal = document.querySelector('.modal');
     // elModal.style.animationName = 'slide-out';
     elModal.hidden = true;
 }
@@ -93,7 +106,7 @@ function onSortBy(sortKey){
 }
 
 function onSearchBook(){
-    elSearch = document.querySelector('.search-book input');
+    var elSearch = document.querySelector('.search-book input');
     const bookName = elSearch.value;
     console.log('bookName',bookName);
     // if(!bookName) return;

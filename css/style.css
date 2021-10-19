@@ -7,6 +7,23 @@ body{
     margin: 0;
     padding: 0;
 }
+body.rtl {
+    direction: rtl;
+}
+select.lang-flag option[value="en"]{
+    background-image:url('../img/flag/us_flag.png');
+    background-position: 10px 9px;
+    background-size: 5px;
+    background-repeat: no-repeat;
+}
+
+select.lang-flag option[value="en"]::before {
+    content: url('../img/flag/us_flag.png');
+    width: 10px;
+    height: 10px;
+    display: block;
+
+}
 
 .books-container{
     margin: 0;
@@ -64,22 +81,11 @@ thead{
     100% {transform: translateX(100%);}
 }
 
-.book-info{
-    background-color: rgb(70, 158, 161);
-    padding: 10px;
-    position: absolute;
-    top: 80px;
-    left: 30px;
-    height: 100px;
-    min-width: 300px;
-    text-align: left;
-    border-radius: 10px;
-}
 table{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-
+    
 }
 th{
     color: white;
@@ -129,11 +135,11 @@ tr:hover {
 }
 
 .read-btn:hover {
-	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
 	background-color:#476e9e;
 }
 .read-btn:active {
-	position:relative;
+    position:relative;
 	top:1px;
 }
 .update-btn{
@@ -152,11 +158,11 @@ tr:hover {
 }
 
 .update-btn:hover {
-	background:linear-gradient(to bottom, #9b7e48 5%, #a58314 100%);
+    background:linear-gradient(to bottom, #9b7e48 5%, #a58314 100%);
 	background-color:#d8b725;
 }
 .update-btn:active {
-	position:relative;
+    position:relative;
 	top:1px;
 }
 .delete-btn{
@@ -175,11 +181,11 @@ tr:hover {
 }
 
 .delete-btn:hover {
-	background:linear-gradient(to bottom, #810d0d 5%, #df2b2b 100%);
+    background:linear-gradient(to bottom, #810d0d 5%, #df2b2b 100%);
 	background-color:#b45757;
 }
 .delete-btn:active {
-	position:relative;
+    position:relative;
 	top:1px;
 }
 
@@ -192,6 +198,18 @@ tr:hover {
     text-align: center;
 }
 
+.book-info{
+    background-color: rgb(70, 158, 161);
+    padding: 10px;
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    height: 100px;
+    min-width: 300px;
+    text-align: left;
+    border-radius: 10px;
+    z-index: 2;
+}
 .add-book{
     cursor: pointer;
 }
